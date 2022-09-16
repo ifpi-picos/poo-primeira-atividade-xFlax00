@@ -4,14 +4,18 @@ import system.dominio.Curso;
 import system.dominio.Certificado;
 
 import javax.swing.JOptionPane;
+import java.time.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
         Professor p1 = new Professor("Bob", "Engenharia de Software");
         Curso c1 = new Curso("Análise e Desenvolvimento de Sistemas", "Superior", 200, p1);
+        Aluno a1 = new Aluno("João", "jão@gmail.com", 12345);
+        Certificado ct1 = new Certificado(c1, a1, LocalDate.now());
 
         System.out.println("Nome do curso: " + c1.getNome() + ", Nome do professor: " + c1.getNomeProfessor());
+        System.out.println("Data de expedição certificado: " + ct1.getDataExpedicao());
 
         for(int i = 0; i < 3; i++) {
             String nomeAluno = JOptionPane.showInputDialog(null, "Insira o nome do aluno: ");
