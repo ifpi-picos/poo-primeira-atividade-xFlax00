@@ -44,6 +44,18 @@ public class App {
 
     }
 
+    private static void exibeCursos() {
+        String info = "";
+
+        for(Curso curso : cursos) {
+            info = info + curso.getNome() + " ch: " + curso.getCh() + "\n";
+            for(Aluno aluno : curso.getAlunos()) {
+                info = info + " - " + aluno.getNome() + "\n";
+            }
+        }
+        JOptionPane.showMessageDialog(null, info, "Cursos", JOptionPane.PLAIN_MESSAGE);
+    }
+
         // Curso c1 = new Curso("Análise e Desenvolvimento de Sistemas", "Superior", 200, p1);
         // Aluno a1 = new Aluno("João", "jão@gmail.com", 12345);
         // Certificado ct1 = new Certificado(c1, a1, LocalDate.now());
