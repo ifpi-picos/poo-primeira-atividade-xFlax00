@@ -56,6 +56,15 @@ public class App {
         JOptionPane.showMessageDialog(null, info, "Cursos", JOptionPane.PLAIN_MESSAGE);
     }
 
+    private static int exibeMenu(List<Integer> opcoes) {
+        Object[] optionsArray = opcoes.toArray();
+        int opcaoSelecionada = JOptionPane.showOptionDialog(null, "1. Cadastrar curso \n2. Cadastrar aluno \n3. Exibir cursos \n 4.Exibir alunos \n5. Certificado \n6. Encerrar",
+        "Selecione", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null,
+        optionsArray, null);
+
+        return opcaoSelecionada;
+    }
+
         // Curso c1 = new Curso("Análise e Desenvolvimento de Sistemas", "Superior", 200, p1);
         // Aluno a1 = new Aluno("João", "jão@gmail.com", 12345);
         // Certificado ct1 = new Certificado(c1, a1, LocalDate.now());
