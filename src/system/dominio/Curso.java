@@ -18,11 +18,15 @@ public class Curso {
         this.alunos = new ArrayList<>();
     }
 
-    public void realizarMatricula(Aluno aluno){
+    public int getAlunosMatriculados() {
+        return this.alunos.size();
+    }
+
+    public void realizarMatricula(Aluno aluno) {
         this.alunos.add(aluno);
     }
 
-    public int getQuantidadeAlunos(){
+    public int getQuantidadeAlunos() {
         return this.alunos.size();
     }
 

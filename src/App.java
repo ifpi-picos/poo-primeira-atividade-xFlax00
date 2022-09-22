@@ -6,10 +6,30 @@ import system.dominio.Certificado;
 import javax.swing.JOptionPane;
 import java.time.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class App {
+
+    static List<Curso> cursos = new ArrayList<>();
     public static void main(String[] args) throws Exception {
 
         Professor p1 = new Professor("Bob", "Engenharia de Software");
+        List<Integer> opcoes = new ArrayList<>();
+        opcoes.add(6);
+        opcoes.add(5);
+        opcoes.add(4);
+        opcoes.add(3);
+        opcoes.add(2);
+        opcoes.add(1);
+
+        int opcaoSelecionada = 1;
+
+        while(opcoes.get(opcaoSelecionada) != 6){
+            opcaoSelecionada = exibeMenu(opcoes);
+            
+        }
+
         Curso c1 = new Curso("Análise e Desenvolvimento de Sistemas", "Superior", 200, p1);
         Aluno a1 = new Aluno("João", "jão@gmail.com", 12345);
         Certificado ct1 = new Certificado(c1, a1, LocalDate.now());
