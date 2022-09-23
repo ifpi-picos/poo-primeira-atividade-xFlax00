@@ -60,9 +60,6 @@ public class App {
 
         for(Curso curso : cursos) {
             info = info + curso.getNome() + " - CH: " + curso.getCh() + ", nível: " +  curso.getNivel() + "\n";
-            // for(Aluno aluno : curso.getAlunos()) {
-            //     info = info + " - " + aluno.getNome() + ", email: " + aluno.getEmail();
-            // }
         }
         JOptionPane.showMessageDialog(null, info, "Cursos", JOptionPane.PLAIN_MESSAGE);
     }
@@ -119,7 +116,6 @@ public class App {
                 optionsArray, null);
 
         String nomeCursoSelecionado = opcoes.get(opcaoSelecionada);
-        System.out.println(nomeCursoSelecionado);
 
         for(Curso curso : cursos) {
             if(curso.getNome() == nomeCursoSelecionado){
@@ -135,10 +131,10 @@ public class App {
                         newOptionsArray, null);
 
                 String nomeAlunoSelecionado = newOpcoes.get(newOpcaoSelecionada);
-                System.out.println(nomeAlunoSelecionado);
+
                 for (Aluno aluno : curso.getAlunos()) {
                     if(aluno.getNome() == nomeAlunoSelecionado){
-                        JOptionPane.showMessageDialog(null, "Nome: " + aluno.getNome() + ", Matricula: " + aluno.getMatricula() + ", Formação: " + curso.getNome() + ".");
+                        JOptionPane.showMessageDialog(null, "Nome: " + aluno.getNome() + ", Matricula: " + aluno.getMatricula() + ", Formação: " + curso.getNome() + ", Data: " + LocalDate.now() + ".");
                     }
                 }
             }
@@ -154,26 +150,5 @@ public class App {
         Curso novoCurso = new Curso(nomeCurso, nivelCurso, Integer.parseInt(chCurso), p1);
         cursos.add(novoCurso);
     }
-
-
-        // Curso c1 = new Curso("Análise e Desenvolvimento de Sistemas", "Superior", 200, p1);
-        // Aluno a1 = new Aluno("João", "jão@gmail.com", 12345);
-        // Certificado ct1 = new Certificado(c1, a1, LocalDate.now());
-
-        // System.out.println("Nome do curso: " + c1.getNome() + ", Nome do professor: " + c1.getNomeProfessor());
-        // System.out.println("Data de expedição certificado: " + ct1.getDataExpedicao());
-
-        // for(int i = 0; i < 3; i++) {
-        //     String nomeAluno = JOptionPane.showInputDialog(null, "Insira o nome do aluno: ");
-        //     String emailAluno = JOptionPane.showInputDialog(null, "Insira o email do aluno: ");
-            
-        //     c1.realizarMatricula(new Aluno(nomeAluno, emailAluno, 1234));
-        // }
-
-        // JOptionPane.showMessageDialog(null,
-        // "Curso: " + c1.getNome() + "\n Alunos: " + c1.getAlunos(), "Dados do curso", 1);
-   
-
-
     
 }
