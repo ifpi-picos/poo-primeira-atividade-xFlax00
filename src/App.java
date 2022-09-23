@@ -36,6 +36,8 @@ public class App {
                 exibeCursos();
             }else if(opcoes.get(opcaoSelecionada) == 4){
                 exibeAlunos();
+            }else if(opcoes.get(opcaoSelecionada) == 5){
+                imprimeCertificado();
             }
         }
         System.out.println(cursos.size());
@@ -101,6 +103,48 @@ public class App {
                 break;
             }
         }
+    }
+
+    private static void imprimeCertificado() {
+
+        List<String> opcoes = new ArrayList<>();
+        for (Curso curso : cursos) {
+            opcoes.add(curso.getNome());
+        }
+        Object[] optionsArray = opcoes.toArray();
+        int opcaoSelecionada = JOptionPane.showOptionDialog(null,
+                "Selecione o curso: ",
+                "Cursos",
+                JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null,
+                optionsArray, null);
+
+        String nomeCursoSelecionado = opcoes.get(opcaoSelecionada);
+        System.out.println(nomeCursoSelecionado);
+
+        for(Curso curso : cursos) {
+            if(curso.getNome() == nomeCursoSelecionado){
+                List<String> newOpcoes = new ArrayList<>();
+                for (Aluno aluno : curso.getAlunos()) {
+                    newOpcoes.add(aluno.getNome());
+                }
+                Object[] newOptionsArray = newOpcoes.toArray();
+                int newOpcaoSelecionada = JOptionPane.showOptionDialog(null,
+                        "Selecione o Aluno: ",
+                        "Aluno",
+                        JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null,
+                        newOptionsArray, null);
+
+                String nomeAlunoSelecionado = newOpcoes.get(newOpcaoSelecionada);
+                System.out.println(nomeAlunoSelecionado);
+                for (Aluno aluno : curso.getAlunos()) {
+                    if(aluno.getNome() == nomeAlunoSelecionado){
+                        JOptionPane.showMessageDialog(null, "Nome: " + aluno.getNome() + ", Matricula: " + aluno.getMatricula() + ", Formação: " + curso.getNome() + ".");
+                    }
+                }
+            }
+            
+        }
+        
     }
 
     private static void cadastrarCurso(Professor p1) {
