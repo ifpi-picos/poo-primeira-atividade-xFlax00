@@ -42,6 +42,14 @@ public class App {
     }
 
     private static void exibeAlunos() {
+        String alumn = "";
+        for(Curso curso : cursos) {
+            
+            for(Aluno aluno : curso.getAlunos()) {
+                alumn = alumn + " - " + aluno.getNome() + ", email: "+ aluno.getEmail() + "\n";
+            }
+        }
+        JOptionPane.showMessageDialog(null, alumn, "Alunos", JOptionPane.PLAIN_MESSAGE);
 
     }
 
@@ -49,10 +57,10 @@ public class App {
         String info = "";
 
         for(Curso curso : cursos) {
-            info = info + curso.getNome() + " ch: " + curso.getCh() + "\n";
-            for(Aluno aluno : curso.getAlunos()) {
-                info = info + " - " + aluno.getNome() + "\n";
-            }
+            info = info + curso.getNome() + " - ch: " + curso.getCh() + " nível: " +  curso.getNivel() + "\n";
+            // for(Aluno aluno : curso.getAlunos()) {
+            //     info = info + " - " + aluno.getNome() + ", email: " + aluno.getEmail();
+            // }
         }
         JOptionPane.showMessageDialog(null, info, "Cursos", JOptionPane.PLAIN_MESSAGE);
     }
@@ -75,7 +83,7 @@ public class App {
         }
         Object[] optionsArray = opcoes.toArray();
         int opcaoSelecionada = JOptionPane.showOptionDialog(null,
-                "Selecion o curso",
+                "Selecione o curso: ",
                 "Cursos",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null,
                 optionsArray, null);
