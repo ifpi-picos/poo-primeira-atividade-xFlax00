@@ -46,7 +46,7 @@ public class App {
         for(Curso curso : cursos) {
             
             for(Aluno aluno : curso.getAlunos()) {
-                alumn = alumn + " - " + aluno.getNome() + ", email: "+ aluno.getEmail() + "\n";
+                alumn = alumn + " - " + aluno.getNome() + "\n" + "email: "+ aluno.getEmail() + ", curso: " + curso.getNome() + "\n";
             }
         }
         JOptionPane.showMessageDialog(null, alumn, "Alunos", JOptionPane.PLAIN_MESSAGE);
@@ -57,7 +57,7 @@ public class App {
         String info = "";
 
         for(Curso curso : cursos) {
-            info = info + curso.getNome() + " - ch: " + curso.getCh() + " nível: " +  curso.getNivel() + "\n";
+            info = info + curso.getNome() + " - CH: " + curso.getCh() + ", nível: " +  curso.getNivel() + "\n";
             // for(Aluno aluno : curso.getAlunos()) {
             //     info = info + " - " + aluno.getNome() + ", email: " + aluno.getEmail();
             // }
